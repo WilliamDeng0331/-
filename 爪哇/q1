@@ -1,0 +1,102 @@
+import java.lang.reflect.Method;
+
+import java.util.*;
+import java.util.stream.*;
+import java.lang.String;
+import static java.util.Arrays.asList;
+import static java.util.Arrays.stream;
+
+public class MethodsEx {
+    static long numOfMethods(Class<?> cls) {
+        return Stream.of(cls.getDeclaredMethods()).count();
+    }
+    static List<String> methodNames(Class<?> cls) {
+// (a)
+        String[] methodNames = {"value, equals, length, toString, hashCode, getCharscompareTo, " +
+                "compareTo, indexOf, indexOf, indexOf, indexOf, indexOf,\n" +
+                "    checkIndex, valueOf, valueOf, valueOf, valueOf, valueOf, valueOf,\n" +
+                "    valueOf, valueOf, valueOf, coder, rangeCheck, codePoints, isEmpty,\n" +
+                "    charAt, codePointAt, codePointBefore, codePointCount,\n" +
+                "    offsetByCodePoints, getBytes, getBytes, getBytes, getBytes, getBytes,\n" +
+                "    contentEquals, contentEquals, nonSyncContentEquals, equalsIgnoreCase,\n" +
+                "    compareToIgnoreCase, regionMatches, regionMatches, startsWith,\n" +
+                "    startsWith, endsWith, lastIndexOf, lastIndexOf, lastIndexOf,\n" +
+                "    lastIndexOf, lastIndexOf, substring, substring, subSequence, concat,\n" +
+                "    replace, replace, matches, contains, replaceFirst, replaceAll, split,\n" +
+                "    split, join, join, toLowerCase, toLowerCase, toUpperCase,\n" +
+                "    toUpperCase, trim, strip, stripLeading, stripTrailing, isBlank,\n" +
+                "    lines, lines, indent, indent, indexOfNonWhitespace,\n" +
+                "    lastIndexOfNonWhitespace, transform, chars, toCharArray, format,\n" +
+                "    format, copyValueOf, copyValueOf, intern, repeat, isLatin1,\n" +
+                "    checkOffset, checkBoundsOffCount, checkBoundsBeginEnd,\n" +
+                "    valueOfCodePoint, describeConstable, resolveConstantDesc,\n" +
+                "    resolveConstantDesc, lambda$indent$2, lambda$indent$1,\n" +
+                "    lambda$indent$0"};
+        Stream stream = stream(methodNames);
+        return null;
+    }
+    static List<String> distinctMethodNamesInOrder(Class<?> cls) {
+// (b)
+        Stream<String> distinctStream = Stream.of("charAt, chars, checkBoundsBeginEnd,\n" +
+                "    checkBoundsOffCount, checkIndex, checkOffset, codePointAt,\n" +
+                "    codePointBefore, codePointCount, codePoints, coder, compareTo,\n" +
+                "    compareToIgnoreCase, concat, contains, contentEquals, copyValueOf,\n" +
+                "    describeConstable, endsWith, equals, equalsIgnoreCase, format,\n" +
+                "    getBytes, getChars, hashCode, indent, indexOf, indexOfNonWhitespace,\n" +
+                "    intern, isBlank, isEmpty, isLatin1, join, lambda$indent$0,\n" +
+                "    lambda$indent$1, lambda$indent$2, lastIndexOf,\n" +
+                "    lastIndexOfNonWhitespace, length, lines, matches,\n" +
+                "    nonSyncContentEquals, offsetByCodePoints, rangeCheck, regionMatches,\n" +
+                "    repeat, replace, replaceAll, replaceFirst, resolveConstantDesc,\n" +
+                "    split, startsWith, strip, stripLeading, stripTrailing, subSequence,\n" +
+                "    substring, toCharArray, toLowerCase, toString, toUpperCase,\n" +
+                "    transform, trim, value, valueOf, valueOfCodePoint").distinct();
+        Stream<String> sortedStream = distinctStream.sorted(Comparator.comparing(String::length));
+        return null;
+    }
+    static Optional<Method> methodWithMostParameters(Class<?> cls) {
+// (c)
+        Methodwithmostparameters: static int
+        java.lang.String.indexOf(byte[],byte,int,java.lang.String,int);
+        Stream<String> methodWithMostParameters = Stream.of("byte[],byte,int,java.lang.String,int");
+        OptionalInt maxmethodWithMostParameters = List.stream;
+        maptoint =
+        return null;
+    }
+    static Map<String, Long> methodNamesToCounts(Class<?> cls) {
+// (d)
+
+        Stream<String> methodNamesToCounts = Stream.of("toCharArray=1, coder=1, codePointAt=1,\n" +
+                "            replace=2, checkOffset=1, resolveConstantDesc=2,\n" +
+                "            checkBoundsOffCount=1, compareTo=2, describeConstable=1, getBytes=5,\n" +
+                "            strip=1, split=2, trim=1, toUpperCase=2, join=2, equalsIgnoreCase=1,\n" +
+                "            codePointBefore=1, indexOf=5, compareToIgnoreCase=1, codePoints=1,\n" +
+                "            checkBoundsBeginEnd=1, lastIndexOfNonWhitespace=1, toLowerCase=2,\n" +
+                "            lambda$indent$2=1, format=2, lambda$indent$1=1, lambda$indent$0=1,\n" +
+                "            concat=1, matches=1, contains=1, endsWith=1, nonSyncContentEquals=1,\n" +
+                "     \n" +
+                "            stripLeading=1, indent=2, checkIndex=1, regionMatches=2, isBlank=1,\n" +
+                "                replaceFirst=1, replaceAll=1, substring=2, transform=1, hashCode=1,\n" +
+                "                repeat=1, lines=2, copyValueOf=2, value=1, codePointCount=1,\n" +
+                "                intern=1, valueOf=9, getChars=1, contentEquals=2, isEmpty=1,\n" +
+                "                length=1, subSequence=1, lastIndexOf=5, isLatin1=1, rangeCheck=1,\n" +
+                "                valueOfCodePoint=1, indexOfNonWhitespace=1, equals=1, toString=1,\n" +
+                "                chars=1, offsetByCodePoints=1, charAt=1, stripTrailing=1,\n" +
+                "                startsWith=2");
+        List maxmethodNamesToCounts = list.stream()
+                .map(::getd)
+                         .methodNamesToCounts.collect();
+        return null;
+    }
+    public static void main(String[] args)
+            throws ClassNotFoundException {
+        Class<?> cls = args.length > 0 ? Class.forName(args[0]) :String.class;
+        System.out.println(cls);
+        System.out.println("Number of methods: " + numOfMethods(cls));
+        System.out.println("Method names: " + methodNames(cls));
+        System.out.println("Distinct method names: " + distinctMethodNamesInOrder(cls));
+        System.out.println("Method with most parameters: " + methodWithMostParameters(cls).get());
+        System.out.println("Method names to counts: " + methodNamesToCounts(cls));
+    }
+}
+
